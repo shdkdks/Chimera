@@ -31,5 +31,17 @@ public class door_event : MonoBehaviour
     {
         SceneManager.LoadScene("EventScene");
     }
+    public void ChallengeScene()
+    {
+        SceneManager.LoadScene("ChallengeScene");
+    }
+    public void MiddleBossScene()
+    {
+        SceneManager.LoadScene("MiddleBossScene");
+    }
+    public void BossScene()
+    {
+        SceneManager.LoadScene("BossScene");
+    }
 
 }
