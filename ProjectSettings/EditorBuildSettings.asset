@@ -9,12 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Door/ThreatScene.unity
-    guid: 533d057754e651948a9a6332df772547
+    path: Assets/Scenes/door/MonsterScene.unity
+    guid: c72d252312f11bd4abd3fc79dad22675
   - enabled: 1
-    path: Assets/Scenes/Door/EventScene.unity
-    guid: 1c8fb7088c9d6f3438bdaf49b7e03435
+    path: Assets/Scenes/door/ThreatScene.unity
+    guid: 2181c6ff07322c442af58328c520850b
   - enabled: 1
-    path: Assets/Scenes/Door/MonsterScene.unity
-    guid: 7fd46b90addf1964f966f082ba8c90a0
+    path: Assets/Scenes/door/EventScene.unity
+    guid: bf4ee575b1d63a3429b9584cd1bcbffe
+  - enabled: 1
+    path: Assets/Scenes/door/ChallengeScene.unity
+    guid: 183b20533e5a2bf4e9bb090e26f078a0
+  - enabled: 1
+    path: Assets/Scenes/door/MiddleBossScene.unity
+    guid: e35218ec385051d40b3f72449287f7b1
+  - enabled: 1
+    path: Assets/Scenes/door/BossScene.unity
+    guid: bd93e7dfc657fd74eb7e7da0dfc337bd
   m_configObjects: {}
