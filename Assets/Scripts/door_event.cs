@@ -6,39 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class door_event : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
-
+    //강적 방
     public void ThreatScene()
     {
         SceneManager.LoadScene("ThreatScene");
     }
+    //몬스터 방
     public void MonsterScene()
     {
         SceneManager.LoadScene("MonsterScene");
     }
+    //이벤트방
     public void EventScene()
     {
         SceneManager.LoadScene("EventScene");
     }
+    //도전 방
     public void ChallengeScene()
     {
         SceneManager.LoadScene("ChallengeScene");
     }
+    //중간보스 방
     public void MiddleBossScene()
     {
         SceneManager.LoadScene("MiddleBossScene");
     }
+    //보스 방
     public void BossScene()
     {
         SceneManager.LoadScene("BossScene");

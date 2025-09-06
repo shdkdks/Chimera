@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
@@ -13,12 +14,19 @@ public class GameManager : MonoBehaviour
     [Header("캔버스")]
     public Transform canvas;
 
+    public enum Turn { Player, Monster }
+    public Turn currentTurn;
+    public Player player;
+    public Monster monster;
     void Awake()
     {
         Onload();
     }
     void Start()
     {
+        // 게임 시작 시 플레이어의 턴으로 설정
+        currentTurn = Turn.Player;
+        Debug.Log("플레이어의 턴입니다.");
         SpawnUI();
     }
 
@@ -46,6 +54,24 @@ public class GameManager : MonoBehaviour
         }
         return newArray;
     }
+    public void EndTurn()
+    {
+        // 턴을 넘기는 함수
+        if (currentTurn == Turn.Player)
+        {
+            currentTurn = Turn.Monster;
+            Debug.Log("몬스터의 턴입니다.");
+
+            // 몬스터에게 턴이 넘어갔음을 알림
+            monster.OnPlayerTurnEnd();
+        }
+        else if (currentTurn == Turn.Monster)
+        {
+            currentTurn = Turn.Player;
+            Debug.Log("플레이어의 턴입니다.");
+        }
+    }
+
     public void Onload()
     {
         if (instance == null)
