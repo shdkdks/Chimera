@@ -614,6 +614,9 @@ MonoBehaviour:
   - {fileID: 159515729}
   - {fileID: 1739646199}
   canvas: {fileID: 1392123033}
+  currentTurn: 0
+  player: {fileID: 0}
+  monster: {fileID: 0}
 --- !u!4 &1819966214
 Transform:
   m_ObjectHideFlags: 0
