@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance;
     [Header("스폰할 UI")]
     public GameObject[] uiPrefabs;
 
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Turn currentTurn;
     public Player player;
     public Monster monster;
+
     void Awake()
     {
         Onload();
@@ -32,22 +33,34 @@ public class GameManager : MonoBehaviour
 
     void SpawnUI()
     {
+        // 무작위 생성
         GameObject[] shuffled = ShuffleArray(uiPrefabs);
 
         for (int i = 0; i < 3; i++)
-        {
-            GameObject ui = Instantiate(shuffled[i], uiSpawnPoints[i].position, Quaternion.identity, canvas);
-            
-            ui.GetComponent<RectTransform>().anchoredPosition = uiSpawnPoints[i].GetComponent<RectTransform>().anchoredPosition;
+        {        
+            // 섞인 프리팹 중 i번째 것을 지정된 위치에 생성
+            GameObject ui = Instantiate(
+                shuffled[i],                         // 생성할 UI 프리팹
+                uiSpawnPoints[i].position,           // 생성할 위치
+                Quaternion.identity,                 // 회전값 (없음)
+                canvas                               // 부모를 Canvas로 설정
+            );
+            //UI는 RectTransform 기준으로 위치를 맞춰야 정확하므로 anchoredPosition으로 위치 조정
+            ui.GetComponent<RectTransform>().anchoredPosition =
+                uiSpawnPoints[i].GetComponent<RectTransform>().anchoredPosition;
         }
     }
 
     GameObject[] ShuffleArray(GameObject[] array)
     {
+        // 원본 배열 복사
         GameObject[] newArray = (GameObject[])array.Clone();
+
         for (int i = newArray.Length - 1; i > 0; i--)
         {
+            // 0~i까지 무작위 선정
             int rand = Random.Range(0, i + 1);
+            // newArray[i]와 newArray[rand]를 정렬
             GameObject temp = newArray[i];
             newArray[i] = newArray[rand];
             newArray[rand] = temp;
